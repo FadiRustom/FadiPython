@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Fresh Tomatoes!</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="4lmrmx3cpWU" data-toggle="modal" data-target="#trailer">
+    <img src="https://www.google.com/search?hl=ar&tbm=isch&source=hp&biw=1280&bih=608&ei=O3cYW-K-EMbvUp-9ktAB&q=avarter&oq=avarter&gs_l=img.12...15200.15633.0.19363.2.2.0.0.0.0.0.0..0.0....0...1ac.1.64.img..2.0.0....0.jTESVsAOKaU#" width="220" height="342">
+    <h2>Avatar</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="FZBhw91Pw74" data-toggle="modal" data-target="#trailer">
+    <img src="https://www.google.com/search?hl=ar&tbm=isch&q=%D8%AA%D8%A7%D9%86%D8%AC%D9%88&chips=q:%D8%AA%D8%A7%D9%86%D8%AC%D9%88,online_chips:%D8%AA%D8%A7%D9%86%D8%BA%D9%88&sa=X&ved=0ahUKEwiV_M2uosDbAhUmLMAKHb0yDAIQ4lYIJSgB&biw=1280&bih=608&dpr=1.25#imgrc=naH4ljqKsJ7uIM:" width="220" height="342">
+    <h2>Tango</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="1G3KIrJD3H4" data-toggle="modal" data-target="#trailer">
+    <img src="https://www.google.com/search?hl=ar&biw=1280&bih=608&tbm=isch&sa=1&ei=u3cYW97ZMMXPgAbwrLuoBg&q=bmpt&oq=bmpt&gs_l=img.1.0.0l2j0i30k1l8.115407.130137.0.133001.14.10.1.0.0.0.271.1473.0j4j3.7.0....0...1c.1.64.img..6.8.1479.0..0i10k1j0i7i30k1j0i10i24k1j0i67k1.0.rfZ3vpmpGCE#imgrc=u_DKf_L1YHDiCM:" width="220" height="342">
+    <h2>BMPT</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="4xtih8CCAK0" data-toggle="modal" data-target="#trailer">
+    <img src="https://www.google.com/search?hl=ar&biw=1280&bih=608&tbm=isch&sa=1&ei=mXgYW-zpFsyTgAbL_qqwBA&q=%D8%B9%D9%8F%D9%85%D8%A7%D9%86&oq=%D8%B9%D9%8F&gs_l=img.1.0.0l10.33105.50002.0.53684.8.5.3.0.0.0.212.1021.0j2j3.5.0....0...1c..64.img..0.8.1073...35i39k1j0i5i30k1j0i24k1.0.0Wvt_P8qiXs#imgrc=-nCRdIcmULK9kM:" width="220" height="342">
+    <h2>Oman</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="xzRpEOIaW7Q" data-toggle="modal" data-target="#trailer">
+    <img src="https://www.google.com/search?hl=ar&biw=1280&bih=608&tbm=isch&sa=1&ei=ZncYW6G2AorqgQa66qC4Bg&q=%D8%A7%D9%84%D9%87%D9%8A%D8%A8%D8%A9+2&oq=hgidf&gs_l=img.1.3.0i10i1k1j0i10i1i24k1l9.40162.41801.0.46285.5.5.0.0.0.0.579.1083.5-2.2.0....0...1c.1.64.img..3.2.1076...0j0i30k1.0.U5nN_FuUpc0#imgrc=_" width="220" height="342">
+    <h2>Haeba21</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="PqnN3aLay2E" data-toggle="modal" data-target="#trailer">
+    <img src="https://www.google.com/search?hl=ar&biw=1280&bih=608&tbm=isch&sa=1&ei=ZncYW6G2AorqgQa66qC4Bg&q=%D8%A7%D9%84%D9%87%D9%8A%D8%A8%D8%A9+2&oq=hgidf&gs_l=img.1.3.0i10i1k1j0i10i1i24k1l9.40162.41801.0.46285.5.5.0.0.0.0.579.1083.5-2.2.0....0...1c.1.64.img..3.2.1076...0j0i30k1.0.U5nN_FuUpc0#imgrc=BG9ufdnWvqgMbM:" width="220" height="342">
+    <h2>Haeba20</h2>
+</div>
+
+    </div>
+  </body>
+</html>
